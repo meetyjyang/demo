@@ -1,0 +1,18 @@
+# tomcat端口设置
+server:
+  port: 10086
+# 服务名称 在eureka显示
+spring:
+  application:
+    name: cloud-registry
+# eureka
+eureka: #自己注册自己
+  client:
+    fetch-registry: false  #不拉取服务
+    register-with-eureka: false # 不注册自己
+    service-url:  # 配置其他Eureka服务的地址，而不是自己，比如10087
+      defaultZone: http://127.0.0.1:${server.port}/eureka
+#eureka: #注册集群
+#  client:
+#    service-url:  # 配置其他Eureka服务的地址，而不是自己，比如10087
+#      defaultZone: http://127.0.0.1:10086/eureka
